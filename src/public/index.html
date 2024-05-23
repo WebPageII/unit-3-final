@@ -3,18 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/style.css">
     <title>Image Comparison</title>
 </head>
+
+<style>
+    #imageForm{
+    
+    }
+    .formbox{
+        border: 3px solid #000000;
+        padding: 7px;
+        height: 50%;
+        width:fit-content;
+        margin: 3px;
+        display: inline-block;
+    }
+
+    .display{
+        scale: 1;
+    }
+    
+    #gridContainer1{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        border: 2px solid #000000;
+        pad: 0%;
+    }
+
+    #gridContainer2{
+        position: relative;
+        top: 0%;
+        left: 0%;
+        border: 2px solid #000000;
+        pad: 0%;
+    }
+    #result{
+        left: 50%;
+    }
+</style>
+
 <body>
     <h1>Image Comparison</h1>
     <form id="imageForm">
-        <label for="image1">Select first image:</label>
-        <input type="file" id="image1" name="image1" accept="image/png, image/jpeg"><br><br>
-        <label for="image2">Select second image:</label>
-        <input type="file" id="image2" name="image2" accept="image/png, image/jpeg"><br><br>
-        <button type="submit">Compare Images</button>
+
+
+        <div class="formbox">    
+            <label for="image1">Select first image:</label>
+            <input type="file" id="image1" name="image1" accept="image/png, image/jpeg" onchange="previwImage(1)"><br><br>
+            <img class="display" id="display1">
+            <div id="gridContainer1"></div>
+        </div>
+
+        <div class="formbox">
+            <label for="image2">Select second image:</label>
+            <input type="file" id="image2" name="image2" accept="image/png, image/jpeg" onchange="previwImage(2)"><br><br>
+            <img class="display" id="display2">
+            <div id="gridContainer2"></div>
+        </div>
+        <label for="boxnumber">Enter number for width and hight of boxes:</label>
+            <input type="number" id="boxnumber" name="boxnumber" placeholder="Enter number of boxes" required><br><br>
+
+            <button type="submit">Compare Images</button>
     </form>
-    <div id="result"></div>
+    <button onclick="bigwin()">DEV</button>
+
+    
+    <div id="result">
+
+    </div>
 
     <script src="script.js"></script>
 </body>
